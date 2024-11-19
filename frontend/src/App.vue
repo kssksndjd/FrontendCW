@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+    <LessonList @add-to-cart="addToCart" />
+    <ShoppingCart :cart="cart" @remove-from-cart="removeFromCart" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LessonList from './components/LessonList.vue';
+import ShoppingCart from './components/ShoppingCart.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { LessonList, ShoppingCart },
+  data() {
+    return {
+      cart: [],
+      showCart: false
+    };
+  },
+  methods: {
+    addToCart(lesson) {
+      this.cart.push(lesson);
+    },
+    removeFromCart(item) {
+      const index = this.cart.findIndex(lesson => lesson._id === item._id);
+      if (index !== -1) {
+        this.cart.splice(index, 1);  // Remove only the first matching item
+      }
+    },
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
