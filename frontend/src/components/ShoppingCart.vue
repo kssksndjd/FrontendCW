@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-
+    <div v-if="!showCart">
     <div>
       <h2 class="mt-5">Shopping Cart</h2>
       <ul class="list-group mb-4">
@@ -28,6 +28,7 @@
       <p v-if="checkoutMessage" class="alert alert-info mt-3">{{ checkoutMessage }}</p>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -41,6 +42,9 @@ export default {
     };
   },
   methods: {
+    togglePage() {
+      this.showCart = !this.showCart; // Toggle the showCart flag
+    },
     checkout() {
       // Group items by lessonId and sum their quantities
       const groupedItems = [];
@@ -71,7 +75,7 @@ export default {
       };
 
       // Send the order to the server
-      fetch("http://localhost:3000/orders", {
+      fetch("http://localhost:3000/collections/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(order),

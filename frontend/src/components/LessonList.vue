@@ -5,8 +5,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <div class="container mt-5">
-    <h1 class="text-center mb-4">After School Classes</h1>
+    <h1 class="text-center mb-4">After School Classes!</h1>
 
+    <!-- Toggle View Button -->
     <button class="btn btn-info mb-4" @click="togglePage">
       {{ showCart ? 'Back to Lessons' : 'View Shopping Cart' }}
     </button>
@@ -24,6 +25,7 @@
         />
       </div>
 
+      <!-- Sort Options -->
       <div class="form-group">
         <label for="sortKey">Sort By:</label>
         <select v-model="sortKey" id="sortKey" class="form-control">
@@ -122,6 +124,7 @@ export default {
   },
 };
 </script>
+
 <style>
 .lesson-image {
   width: 100%; /* Make the image span the card's width */

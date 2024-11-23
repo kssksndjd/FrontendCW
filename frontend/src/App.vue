@@ -28,6 +28,9 @@ export default {
         this.cart.splice(index, 1);  // Remove only the first matching item
       }
     },
+    togglePage() {
+      this.showCart = !this.showCart; // Toggle the showCart flag
+    },
   }
 };
 </script>
