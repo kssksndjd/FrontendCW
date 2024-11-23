@@ -15,7 +15,7 @@
     <div v-if="!showCart">
       <!-- Search Input -->
       <div class="form-group">
-        <label for="searchQuery">Search Lessons:</label>
+        <label for="searchQuery">Search Lessons(with subject):</label>
         <input
             type="text"
             id="searchQuery"
